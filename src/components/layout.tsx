@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: any }) {
 	const location = useLocation();
 	return (
 		<div>
-			<div className='content'>{children}</div>
+			<div className='pb-44'>{children}</div>
 			<nav className='fixed bottom-10 left-0 right-0 t-center w-full'>
 				<div className='flex w-full justify-center'>
 					{menu.map((menuItem, index) => (
