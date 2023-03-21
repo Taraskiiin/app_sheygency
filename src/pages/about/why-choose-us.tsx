@@ -27,11 +27,11 @@ export default function WhyChooseUs() {
 			<div className='bg-primary h-72 w-full flex justify-center items-center'>
 				<h2 className='text-7xl font-semibold text-white '>Why Choose Us</h2>
 			</div>
-			<div className='grid grid-cols-3 gap-5 p-5'>
+			<div className='grid grid-cols-3 gap-10 p-5'>
 				{items.map((item) => (
 					<div className='p-5 bg-white border shadow flex flex-col space-y-5 items-center transform  hover:scale-105 duration-300 '>
 						<img src={item.image} alt='item.title' className='h-20 w-20' />
-						<h5 className='text-2xl'>{item.title}</h5>
+						<h5 className='text-2xl font-semibold'>{item.title}</h5>
 						<p className='text-gray-600 text-md'>{item.description}</p>
 					</div>
 				))}
