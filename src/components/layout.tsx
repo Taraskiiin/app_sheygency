@@ -1,26 +1,65 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const menu = [
-  { id: "1", path: "/", title: "Home", icon: "" },
-  { id: "2", path: "/about", title: "About", icon: "" },
-  { id: "3", path: "/clients", title: "Clients", icon: "" },
-  { id: "4", path: "/contact", title: "Contact", icon: "" },
+	{ id: '1', path: '/', title: 'Home', icon: 'ri-home-2' },
+	{ id: '2', path: '/about', title: 'About', icon: 'ri-information' },
+	{
+		id: '3',
+		path: '/clients',
+		title: 'Clients',
+		icon: 'ri-user-location',
+	},
+	{ id: '4', path: '/contact', title: 'Contact', icon: 'ri-phone' },
 ];
 
 export default function Layout({ children }: { children: any }) {
-  return (
-    <div>
-      <div className='content'>{children}</div>
-      <nav className='fixed bottom-10 left-0 right-0 t-center w-full'>
-        <div className='flex'>
-          {menu.map((menuItem) => (
-            <div key={menuItem.id}>
-              <Link to={`${menuItem.path}`}>{menuItem.title}</Link>
-            </div>
-          ))}
-        </div>
-      </nav>
-    </div>
-  );
+	const location = useLocation();
+	return (
+		<div>
+			<div className='content'>{children}</div>
+			<nav className='fixed bottom-10 left-0 right-0 t-center w-full'>
+				<div className='flex w-full justify-center'>
+					{menu.map((menuItem, index) => (
+						<div className='flex flex-col justify-end items-center'>
+							{location.pathname === menuItem.path && (
+								<div className='flex flex-col items-center'>
+									<div className='h-5 w-10 bg-primary rounded-t-full'></div>
+									<div className='h-5 w-20 bg-primary rounded-t-full flex items-center justify-center'>
+										<i
+											className={`${
+												menuItem.icon + '-fill'
+											} text-white text-xl mb-2`}
+										/>
+									</div>
+								</div>
+							)}
+							<div
+								key={menuItem.id}
+								className={`px-20 bg-primary py-5 ${
+									index === 0 && 'rounded-l-md'
+								} ${
+									index === menu.length - 1 && 'rounded-r-md'
+								} flex items-center justify-center space-x-2`}
+							>
+								{location.pathname !== menuItem.path && (
+									<i
+										className={`${
+											menuItem.icon + '-line'
+										} text-xl text-secondary`}
+									/>
+								)}
+								<Link
+									to={`${menuItem.path}`}
+									className='text-secondary text-xl'
+								>
+									{menuItem.title}
+								</Link>
+							</div>
+						</div>
+					))}
+				</div>
+			</nav>
+		</div>
+	);
 }
