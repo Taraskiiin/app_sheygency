@@ -9,10 +9,10 @@ import Clients from "./pages/clients";
 import Contact from "./pages/contact";
 
 const routes = [
-  { path: "/", component: <Home /> },
-  { path: "/about", component: <About /> },
-  { path: "/clients", component: <Clients /> },
-  { path: "/contact", component: <Contact /> },
+  { id: "1", path: "/", component: <Home /> },
+  { id: "2", path: "/about", component: <About /> },
+  { id: "3", path: "/clients", component: <Clients /> },
+  { id: "4", path: "/contact", component: <Contact /> },
 ];
 
 function App() {
@@ -21,9 +21,11 @@ function App() {
       <Layout>
         <BrowserRouter>
           <Routes>
-            {routes.map((el: { path: string; component: JSX.Element }) => (
-              <Route path={el.path} element={el.component} />
-            ))}
+            {routes.map(
+              (el: { id: string; path: string; component: JSX.Element }) => (
+                <Route key={el.id} path={el.path} element={el.component} />
+              )
+            )}
           </Routes>
         </BrowserRouter>
       </Layout>
