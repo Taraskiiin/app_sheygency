@@ -65,17 +65,17 @@ export default function ClientsList() {
 
 	return (
 		<section>
-			<div className='bg-primary h-44 rounded-b-full' />{' '}
-			<div className='flex justify-center -mt-44 items-center space-x-10 relative'>
+			<div className='bg-primary h-44 rounded-b-full sm:hidden' />{' '}
+			<div className='flex justify-center -mt-44 items-center space-x-10 relative sm:-mt-16 sm:space-x-0'>
 				<i
-					className={`ri-arrow-left-line text-4xl text-gray-600 cursor-pointer ${
+					className={`ri-arrow-left-line text-4xl text-gray-600 cursor-pointer sm:hidden ${
 						selected === 0
 							? 'opacity-0  cursor-default'
 							: 'opacity-1 cursor-pointer'
 					}`}
 					onClick={previous}
 				/>
-				<div className='grid grid-cols-3 gap-10'>
+				<div className='grid grid-cols-3 gap-10 sm:grid-cols-1 sm:gap:2 sm:p-2'>
 					{[
 						clients[selected],
 						clients[selected + 1],
@@ -87,9 +87,13 @@ export default function ClientsList() {
 							description: string;
 							url: string;
 						}) => (
-							<div className='bg-white shadow p-5 w-[400px] h-[400px] border'>
-								<div className='flex space-x-10 items-center justify-between'>
-									<img src={item.logo} alt={item.name} className='h-32 w-32' />
+							<div className='bg-white shadow p-5 w-[400px] sm:w-auto h-[400px] sm:h-auto border'>
+								<div className='flex space-x-10 sm:space-x-0 items-center justify-between sm:flex-col'>
+									<img
+										src={item.logo}
+										alt={item.name}
+										className='h-32 w-32 sm:h-10 sm:w-10'
+									/>
 									<h3 className='text-primary font-semibold text-2xl'>
 										{item.name}
 									</h3>
@@ -102,7 +106,7 @@ export default function ClientsList() {
 					)}
 				</div>
 				<i
-					className={`ri-arrow-right-line text-4xl text-gray-600 cursor-pointer ${
+					className={`ri-arrow-right-line text-4xl text-gray-600 cursor-pointer sm:hidden ${
 						selected === 4
 							? 'opacity-0  cursor-default'
 							: 'opacity-1 cursor-pointer'
