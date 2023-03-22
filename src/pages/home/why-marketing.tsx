@@ -5,8 +5,8 @@ import thinking from '../../lottie/thinking.json';
 
 export default function WhyMarketing() {
 	return (
-		<section className='mt-20'>
-			<h2 className='text-center text-8xl text-primary font-semibold '>
+		<section className='mt-20 '>
+			<h2 className='text-center text-8xl text-primary font-semibold sm:text-5xl'>
 				Why <b className='text-secondary'>Marketing</b> ?
 			</h2>{' '}
 			<div className='h-[400px] -mt-[100px] flex justify-center'>

@@ -34,10 +34,10 @@ const strategies = [
 export default function MarketingSrategies() {
 	return (
 		<section>
-			<h3 className='text-primary text-5xl font-semibold'>
+			<h3 className='text-primary text-5xl font-semibold sm:mt-0 sm:text-3xl'>
 				Want to boost your business growth?
 			</h3>
-			<h2 className='text-7xl font-semibold text-primary mt-10'>
+			<h2 className='text-7xl font-semibold text-primary mt-10 sm:text-5xl'>
 				The <b className='text-secondary'>SOLUTION</b> is here...
 			</h2>
 			<p className='text-gray-600 text-xl mt-10'>
@@ -47,13 +47,13 @@ export default function MarketingSrategies() {
 				strategies commonly recognized as successful regardless of industry.
 				Here's what we found, in no particular order:
 			</p>
-			<div className='grid grid-cols-2 gap-20 mt-10 '>
+			<div className='grid grid-cols-2 gap-20 mt-10 sm:grid-cols-1 '>
 				{strategies.map((item) => (
 					<div
 						key={item.id}
 						className='border border-primary p-5 text-primary flex flex-col space-y-10 rounded transform hover:scale-105 duration-300'
 					>
-						<h5 className='mx-20 text-center -mt-11 bg-white border-primary text-secondary border text-2xl rounded py-2 uppercase '>
+						<h5 className='mx-20  sm:mx-5 text-center -mt-11 bg-white border-primary text-secondary border text-2xl rounded py-2 uppercase '>
 							{item.title}
 						</h5>
 						<img src={item.image} alt={item.title} className='h-24 w-24' />
