@@ -23,7 +23,7 @@ const items = [
 
 export default function Address() {
 	return (
-		<div className='bg-secondary rounded-3xl flex flex-col space-y-10 p-10 text-white w-1/2'>
+		<div className='bg-secondary rounded-3xl flex flex-col space-y-10 p-10 text-white w-1/2 sm:w-full sm:rounded-none sm:text-center'>
 			<h3 className='text-3xl font-semibold'>Get In Touch</h3>
 			<p>
 				SUPER-MARKETING is a digital marketing agency that provide marketing and
@@ -31,7 +31,7 @@ export default function Address() {
 			</p>
 
 			{items.map((item) => (
-				<div className='flex space-x-5 items-center'>
+				<div className='flex space-x-5 items-center sm:text-left'>
 					<div className='h-12 w-12 bg-primary p-2 rounded flex justify-center items-center'>
 						<i className={`${item.icon} text-3xl text-secondary`} />
 					</div>

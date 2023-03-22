@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ContactForm() {
 	return (
-		<form className='flex flex-col space-y-10 w-1/2'>
+		<form className='flex flex-col space-y-10 w-1/2 sm:w-full sm:p-5'>
 			<h1 className='text-4xl font-semibold text-primary mb-5'>
 				Send a Message
 			</h1>
