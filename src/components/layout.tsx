@@ -24,8 +24,20 @@ export default function Layout({ children }: { children: any }) {
 						<div className='flex flex-col justify-end items-center'>
 							{location.pathname === menuItem.path && (
 								<div className='flex flex-col items-center'>
-									<div className='h-5 w-10 bg-primary rounded-t-full'></div>
-									<div className='h-5 w-20 bg-primary rounded-t-full flex items-center justify-center'>
+									<div
+										className={`h-5 w-10 rounded-t-full ${
+											location.pathname === '/clients'
+												? 'bg-secondary'
+												: 'bg-primary '
+										}`}
+									></div>
+									<div
+										className={`h-5 w-20 rounded-t-full flex items-center justify-center ${
+											location.pathname === '/clients'
+												? 'bg-secondary'
+												: 'bg-primary '
+										}`}
+									>
 										<i
 											className={`${
 												menuItem.icon + '-fill'
@@ -40,18 +52,26 @@ export default function Layout({ children }: { children: any }) {
 									index === 0 && 'rounded-l-md'
 								} ${
 									index === menu.length - 1 && 'rounded-r-md'
-								} flex items-center justify-center space-x-2`}
+								} flex items-center justify-center space-x-2 	${
+									location.pathname === '/clients' && 'bg-secondary'
+								}`}
 							>
 								{location.pathname !== menuItem.path && (
 									<i
-										className={`${
-											menuItem.icon + '-line'
-										} text-xl text-secondary`}
+										className={`${menuItem.icon + '-line'} text-xl  ${
+											location.pathname === '/clients'
+												? 'text-primary '
+												: 'text-secondary'
+										}`}
 									/>
 								)}
 								<Link
 									to={`${menuItem.path}`}
-									className='text-secondary text-xl'
+									className={` text-xl ${
+										location.pathname === '/clients'
+											? 'text-primary'
+											: 'text-secondary'
+									}`}
 								>
 									{menuItem.title}
 								</Link>
