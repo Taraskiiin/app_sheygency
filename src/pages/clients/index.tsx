@@ -1,5 +1,11 @@
-import React from "react";
+import React from 'react';
+
+import Intro from './intro';
 
 export default function Clients() {
-  return <></>;
+	return (
+		<div>
+			<Intro />
+		</div>
+	);
 }
