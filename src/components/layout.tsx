@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const menu = [
 	{ id: '1', path: '/', title: 'Home', icon: 'ri-home-2' },
@@ -15,15 +15,17 @@ const menu = [
 
 export default function Layout({ children }: { children: any }) {
 	const location = useLocation();
+	const navigate = useNavigate();
+
 	return (
 		<div>
 			<div className='pb-44'>{children}</div>
-			<nav className='fixed bottom-10 left-0 right-0 t-center w-full'>
+			<nav className='fixed bottom-10 left-0 right-0 t-center w-full sm:bottom-0'>
 				<div className='flex w-full justify-center'>
 					{menu.map((menuItem, index) => (
 						<div className='flex flex-col justify-end items-center'>
 							{location.pathname === menuItem.path && (
-								<div className='flex flex-col items-center'>
+								<div className='flex flex-col items-center sm:hidden'>
 									<div
 										className={`h-5 w-10 rounded-t-full ${
 											location.pathname === '/clients'
@@ -48,7 +50,7 @@ export default function Layout({ children }: { children: any }) {
 							)}
 							<div
 								key={menuItem.id}
-								className={`px-20 bg-primary py-5 ${
+								className={`px-20 sm:px-10 bg-primary py-5 ${
 									index === 0 && 'rounded-l-md'
 								} ${
 									index === menu.length - 1 && 'rounded-r-md'
@@ -63,6 +65,7 @@ export default function Layout({ children }: { children: any }) {
 												? 'text-primary '
 												: 'text-secondary'
 										}`}
+										onClick={() => navigate(menuItem.path)}
 									/>
 								)}
 								<Link
@@ -71,7 +74,7 @@ export default function Layout({ children }: { children: any }) {
 										location.pathname === '/clients'
 											? 'text-primary'
 											: 'text-secondary'
-									}`}
+									} ${menuItem.path !== location.pathname && 'sm:hidden'}`}
 								>
 									{menuItem.title}
 								</Link>
