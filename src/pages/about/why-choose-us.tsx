@@ -26,11 +26,13 @@ const items = [
 
 export default function WhyChooseUs() {
 	return (
-		<section className='mx-32 mt-20  border shadow'>
-			<div className='bg-primary h-72 w-full flex justify-center items-center'>
-				<h2 className='text-7xl font-semibold text-white '>Why Choose Us</h2>
+		<section className='mx-32 mt-20  border shadow sm:mx-0 sm:border-none sm:text-center sm:shadow-none'>
+			<div className='bg-primary h-72 w-full flex justify-center items-center sm:h-min sm:py-5'>
+				<h2 className='text-7xl font-semibold text-white sm:text-3xl'>
+					Why Choose Us
+				</h2>
 			</div>
-			<div className='grid grid-cols-3 gap-10 p-5'>
+			<div className='grid grid-cols-3 sm:grid-cols-1 gap-10 sm:gap-5 p-5'>
 				{items.map((item) => (
 					<div
 						key={item.id}

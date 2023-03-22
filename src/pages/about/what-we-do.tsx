@@ -34,12 +34,12 @@ const items = [
 
 export default function WhatWeDo() {
 	return (
-		<section className='mt-20'>
-			<h2 className='text-secondary text-center text-8xl font-semibold '>
+		<section className='mt-20 sm:mt-10'>
+			<h2 className='text-secondary text-center text-8xl font-semibold sm:text-5xl'>
 				What We Do ?
 			</h2>
-			<div className='h-96 w-full mt-20 bg-primary' />
-			<div className='grid grid-cols-4 gap-10 mx-32 -mt-48'>
+			<div className='h-96 w-full mt-20 bg-primary sm:mt-10' />
+			<div className='grid grid-cols-4 sm:grid-cols-1 gap-10 mx-32 -mt-48 sm:mx-5 sm:-mt-80'>
 				{items.map((item) => (
 					<div
 						key={item.id}
