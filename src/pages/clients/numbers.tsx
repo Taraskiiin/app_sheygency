@@ -21,11 +21,13 @@ export default function Numbers() {
 			<h3 className='text-2xl text-gray-600 my-5'>
 				Until today we have provided our services to ....
 			</h3>
-			<div className='bg-secondary flex space-x-10 p-5 justify-between rounded'>
+			<div className='bg-primary flex space-x-10 p-5 justify-between rounded'>
 				{data.map((item) => (
 					<div className='flex flex-col space-y-5 items-center'>
-						<h3 className='text-9xl text-white'>{item.value}</h3>
-						<h5 className='text-white fonts-semibold text-2xl'>{item.title}</h5>
+						<h3 className='text-9xl text-secondary'>{item.value}</h3>
+						<h5 className='text-secondary fonts-semibold text-2xl'>
+							{item.title}
+						</h5>
 					</div>
 				))}
 			</div>
