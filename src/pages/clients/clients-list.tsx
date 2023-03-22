@@ -56,23 +56,25 @@ export default function ClientsList() {
 	const [selected, setSelected] = useState(0);
 
 	const next = () => {
-		setSelected(selected + 1);
+		selected !== 4 && setSelected(selected + 1);
 	};
 
 	const previous = () => {
-		setSelected(selected - 1);
+		selected !== 0 && setSelected(selected - 1);
 	};
 
 	return (
 		<section>
 			<div className='bg-primary h-44 rounded-b-full' />{' '}
 			<div className='flex justify-center -mt-44 items-center space-x-10 relative'>
-				{selected !== 0 && (
-					<i
-						className='ri-arrow-left-line text-4xl text-gray-600 cursor-pointer absolute left-10'
-						onClick={previous}
-					/>
-				)}
+				<i
+					className={`ri-arrow-left-line text-4xl text-gray-600 cursor-pointer ${
+						selected === 0
+							? 'opacity-0  cursor-default'
+							: 'opacity-1 cursor-pointer'
+					}`}
+					onClick={previous}
+				/>
 				<div className='grid grid-cols-3 gap-10'>
 					{[
 						clients[selected],
@@ -99,16 +101,18 @@ export default function ClientsList() {
 						)
 					)}
 				</div>
-				{selected < 4 && (
-					<i
-						className='ri-arrow-right-line text-4xl text-gray-600 cursor-pointer absolute right-10'
-						onClick={next}
-					/>
-				)}
+				<i
+					className={`ri-arrow-right-line text-4xl text-gray-600 cursor-pointer ${
+						selected === 4
+							? 'opacity-0  cursor-default'
+							: 'opacity-1 cursor-pointer'
+					}`}
+					onClick={next}
+				/>
 			</div>
 			<div className='flex justify-center mt-10'>
 				<div className='flex space-x-2'>
-					{[1, 2, 3, 4].map((item, index) => (
+					{[1, 2, 3, 4, 5].map((item, index) => (
 						<div
 							className={`h-4 w-4 rounded-full cursor-pointer  transform duration-300 ${
 								selected === index ? 'bg-secondary' : 'bg-gray-200'
